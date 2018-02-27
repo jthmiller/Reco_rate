@@ -25,6 +25,13 @@ window <- 5
 est.recrate(chr1$cm.pos,chr1$mb.pos,window=window)
 
 
+I generated reco rate on 1 mb sliding window [here](https://github.com/jthmiller/Reco_rate/blob/master/CRH1_1mb_window.r)
+
+mb_1 <- est.recrate(chr1$cm.pos,chr1$mb.pos,window=1)
+
+write.table(mb_1,file='/home/jmiller1/reco_rates/CRH1_1mb_window.r', sep=',')
+
+
 
 How I generated the table. Not useful:
 posit.mb <- as.numeric(gsub('1:','',markernames(GP, chr=1)))/1000000
