@@ -1,12 +1,13 @@
 # Reco_rate
 
-To run the reco rate for Chr 1 (AHR2a/1a)
+To calculate the reco rate along Chr 1 (AHR2a/1a)
 Uses K.Broman's 'xio' package
 
 First, download 'CRH1_table.r' from [here](https://github.com/jthmiller/Reco_rate/blob/master/CRH1_table.r)
 
 In R:
 
+```R
 install.packages('xio')
 
 require('xio')
@@ -17,13 +18,13 @@ exe: "/Users/jeffreymiller/Downloads/"
 
 chr1 <- read.table(paste(dir,'CRH1_table.r',sep=''), sep=',')
 
-usage: est.recrate(genmap, phymap, pos, window = 5)
+#usage: est.recrate(genmap, phymap, pos, window = 5)
 
-Set the window size for calculating recombination rate
+#Set the window size for calculating recombination rate
 window <- 5
 
 est.recrate(chr1$cm.pos,chr1$mb.pos,window=window)
-
+```
 
 I generated reco rate on 1 mb sliding window [here](https://github.com/jthmiller/Reco_rate/blob/master/CRH1_1mb_window.r)
 
