@@ -1,7 +1,7 @@
 # Reco_rate
 
 To calculate the reco rate along Chr 1 (AHR2a/1a)
-Uses K.Broman's 'xio' package
+Uses K.Broman's 'xoi' package
 
 First, download 'CRH1_table.r' from [here](https://github.com/jthmiller/Reco_rate/blob/master/CRH1_table.r)
 
