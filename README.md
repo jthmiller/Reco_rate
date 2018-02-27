@@ -12,6 +12,7 @@ install.packages('xio')
 require('xio')
 
 dir <- "copy the location of the file here"
+
 exe: "/Users/jeffreymiller/Downloads/"
 
 chr1 <- read.table(paste(dir,'CRH1_table.r',sep=''), sep=',')
@@ -25,7 +26,7 @@ est.recrate(chr1$cm.pos,chr1$mb.pos,window=window)
 
 
 
-# How I generated the table. Not useful
+How I generated the table. Not useful:
 posit.mb <- as.numeric(gsub('1:','',markernames(GP, chr=1)))/1000000
 marks <- markernames(GP, chr=1)
 names(posit.mb) <- marks
