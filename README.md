@@ -3,27 +3,29 @@
 To run the reco rate for Chr 1 (AHR2a/1a)
 Uses K.Broman's 'xio' package
 
-# First, download 'CRH1_table.r' from
+First, download 'CRH1_table.r' from [here](https://github.com/jthmiller/Reco_rate/blob/master/CRH1_table.r)
+
+In R:
 
 install.packages('xio')
 
 require('xio')
 
 dir <- "copy the location of the file here"
-#exe: "/Users/jeffreymiller/Downloads/"
+exe: "/Users/jeffreymiller/Downloads/"
 
 chr1 <- read.table(paste(dir,'CRH1_table.r',sep=''), sep=',')
 
-# usage: est.recrate(genmap, phymap, pos, window = 5)
+usage: est.recrate(genmap, phymap, pos, window = 5)
 
-# Set the window size for calculating recombination rate
+Set the window size for calculating recombination rate
 window <- 5
 
 est.recrate(chr1$cm.pos,chr1$mb.pos,window=window)
 
 
 
-# How I generated the table
+# How I generated the table. Not useful
 posit.mb <- as.numeric(gsub('1:','',markernames(GP, chr=1)))/1000000
 marks <- markernames(GP, chr=1)
 names(posit.mb) <- marks
