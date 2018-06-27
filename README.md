@@ -4,6 +4,8 @@ To calculate the reco rate along Chr 1 (AHR2a/1a)
 Uses K.Broman's 'xoi' package
 
 First, download 'CRH1_table.r' from [here](https://github.com/jthmiller/Reco_rate/blob/master/CRH1_table.r)
+OR if you are EO: 'CH10_table.r' from [here on farm](http://farm.cse.ucdavis.edu/~jmiller1/CRH10_table.r)
+
 
 In R:
 
