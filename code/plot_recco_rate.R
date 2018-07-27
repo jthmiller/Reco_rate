@@ -1,11 +1,12 @@
 # Reco_rate
 install.packages('xoi')
 require('xoi')
-dir <- "/home/jmiller1/reco_rates/tables/"
-plotdir <- "/home/jmiller1/reco_rates/plots/"
+dir <- "/home/jmiller1/Reco_rate/tables/"
+plotdir <- "/home/jmiller1/Reco_rate/plots/"
+
 #Set the window (MB) size for calculating recombination rate
 window <- 1
-#load('/home/jmiller1/QTL_Map_Raw/popgen/rQTL/NBH/plot.lod.profile')
+load('/home/jmiller1/QTL_Map_Raw/popgen/rQTL/NBH/plot.lod.profile')
 
 plot.rate <- function(X){
   # Convert position to MB
@@ -21,21 +22,23 @@ plot.rate <- function(X){
     cm.pos=chr[marks,2],
     mb.pos=posit.mb[marks])
 
-  #write.table(chr.rate,
-  #  file=paste(dir,'CHR',X,'CM_dist.csv',sep=''),
-  #  sep=',')
+  write.table(chr.rate,
+    file=paste(dir,'CHR',X,'CM_dist.csv',sep=''),
+    sep=',')
 
   # Estimate recombination. 'Uses the physical marker positions plus a grid with 4 positions per Mbp.'
   rate <- est.recrate(chr.rate$cm.pos,chr.rate$mb.pos,window=window)
-  #write.table(rate,
-  #  file=paste(dir,'CHR',X,'_','per',window,'MB.csv',sep=''),
-  #  sep=',')
+  write.table(rate,
+    file=paste(dir,'CHR',X,'_','per',window,'MB.csv',sep=''),
+    sep=',')
 
   # Plot into plotdir
-  #png(filename = paste(plotdir,'CHR',X,'_','per',window,'MB.png',sep=''))
+  png(filename = paste(plotdir,'CHR',X,'_','per',window,'MB.png',sep=''))
   plot(rate$pos,rate$rate)
-  #dev.off()
+  dev.off()
 }
+
+sapply(1:24,plot.rate)
 
 # Extremely high recombination on CHR10 marker at 29-30.5 CM, which
 # is position 30134102 to 34335301
