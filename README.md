@@ -8,15 +8,16 @@ First, download 'CRH1_table.r' from [here](https://github.com/jthmiller/Reco_rat
 In R:
 
 ```R
-install.packages('xio')
+install.packages('xoi')
 
-require('xio')
+require('xoi')
 
 dir <- "copy the location of the file here"
 
 #exe: "/Users/jeffreymiller/Downloads/"
 
-chr1 <- read.table(paste(dir,'CRH1_table.r',sep=''), sep=',')
+chr1 <- read.table(paste(dir,'CRH1_table.r',sep=''),
+          sep=',')
 
 #usage: est.recrate(genmap, phymap, pos, window = 5)
 
@@ -30,7 +31,9 @@ I generated reco rate on 1 mb sliding window [here](https://github.com/jthmiller
 ```R
 mb_1 <- est.recrate(chr1$cm.pos,chr1$mb.pos,window=1)
 
-write.table(mb_1,file='/home/jmiller1/reco_rates/CRH1_1mb_window.r', sep=',')
+write.table(mb_1,
+  file='/home/jmiller1/reco_rates/CRH1_1mb_window.r',
+  sep=',')
 ```
 
 
@@ -40,6 +43,9 @@ posit.mb <- as.numeric(gsub('1:','',markernames(GP, chr=1)))/1000000
 marks <- markernames(GP, chr=1)
 names(posit.mb) <- marks
 chr1 <- map2table(pull.map(GP,chr=1))
-write.table(data.frame(chr=chr1[marks,1],cm.pos=chr1[marks,2],mb.pos=posit.mb[marks]),file='/home/jmiller1/reco_rates/CRH1_table.r', sep=',')
+write.table(data.frame(chr=chr1[marks,1],
+  cm.pos=chr1[marks,2],
+  mb.pos=posit.mb[marks]),
+  file='/home/jmiller1/reco_rates/CRH1_table.r',
+  sep=',')
 ```
-
